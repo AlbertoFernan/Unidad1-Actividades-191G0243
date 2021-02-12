@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Prueba" Height="450" Width="800">
     <Grid>
-        <TextBlock FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center">Prueba</TextBlock>
+        <TextBlock Foreground="Chocolate" FontSize="100" VerticalAlignment="Center" HorizontalAlignment="Center">Prueba</TextBlock>
     </Grid>
 </Window>
