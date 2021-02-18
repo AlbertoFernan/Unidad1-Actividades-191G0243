@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Actividad_3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="260" Width="585" MinHeight="260"  MinWidth="585">
+        Title="Reloj 191G0243" Height="260" Width="585" MinHeight="260"  MinWidth="585">
     <Grid Margin="40">
         <Border Background="LightGray" BorderBrush="GhostWhite" BorderThickness="1" CornerRadius="8,8,8,8"></Border>
         <StackPanel>
