@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Actividad_5
 {
-    class SimuladorInversion:INotifyPropertyChanged
+    public class SimuladorInversion:INotifyPropertyChanged
     {
         private decimal monto;
 
