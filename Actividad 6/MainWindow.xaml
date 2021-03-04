@@ -1,0 +1,113 @@
+﻿<Window x:Class="Actividad_6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Actividad_6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="SteelBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+
+            <ColumnDefinition></ColumnDefinition>      
+        
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Column="1" VerticalAlignment="Center"  >
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Padding" Value="8">
+                    </Setter>
+                    <Setter Property="HorizontalAlignment" Value="Right">
+                    </Setter>
+                    <Setter Property="FontSize" Value="16">
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Padding" Value="20"></Setter>
+                            
+                        </Trigger>
+                    </Style.Triggers>
+                    
+
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Background="PaleVioletRed" > Aprobacion de credito el mismo dia</TextBlock>
+            <TextBlock Background="PaleGreen" > Bonos desde $5,000 y hasta $40,000</TextBlock>
+            <TextBlock Background="PaleGoldenrod"> 0% de comision por apertura</TextBlock>
+            <TextBlock Background="PaleTurquoise" > Seguro gratis</TextBlock>
+            <TextBlock Background="LightPink"> Tasa desde el 5%</TextBlock>
+            
+        </StackPanel>
+
+        <DockPanel Background="DarkSeaGreen">
+            <DockPanel.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Source" Value="https://chevrolettepic.com/wp-content/uploads/2020/06/CHEVROLET_ONIX2021-2.png">
+                        
+                    </Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=Autos, Path=SelectedItem.Content}" Value="Plateado">
+                            <Setter Property="Source" Value="https://automobile-assets.s3.amazonaws.com/automobile/body/chevrolet-onix-2020-2021-1581957680.84.png">
+
+                            </Setter>
+                        
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=Autos, Path=SelectedItem.Content}" Value="Azul">
+                            <Setter Property="Source" Value="https://www.chevrolet.com.pa/images/960x540_0034_mcx_1eg69_1ls_lhd_g6o.png?imwidth=960">
+
+                            </Setter>
+
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=Autos, Path=SelectedItem.Content}" Value="Rojo">
+                            <Setter Property="Source" Value="https://chevroletuniversidad.mx/wp-content/uploads/2020/07/onix-colores_0001_Capa-5.png">
+
+                            </Setter>
+
+                        </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Margin" Value="20"></Setter>
+                        </Trigger>
+
+                    </Style.Triggers>
+                </Style>
+                
+                
+            </DockPanel.Resources>
+            <TextBlock Background="DarkGoldenrod" Foreground="WhiteSmoke" FontSize="20" TextAlignment="Center" DockPanel.Dock="Top">
+             Nuevo Onix 
+            </TextBlock>
+            
+            
+            <TextBlock Background="CadetBlue" Foreground="Yellow"  FontSize="25" TextAlignment="Center" DockPanel.Dock="Top">
+            Find New Roads
+            </TextBlock>
+
+            <ComboBox Margin="20" DockPanel.Dock="Bottom" SelectedIndex="0" Name="Autos">
+                <ComboBoxItem>
+                    Gris
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Plateado
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Azul
+                </ComboBoxItem>
+                <ComboBoxItem>
+                   Rojo
+                </ComboBoxItem>
+                
+            </ComboBox>
+            <Border Margin="20" Background="WhiteSmoke" BorderThickness="1" CornerRadius="8,8,8,8">
+                <Image>
+                    
+                </Image>
+            </Border>
+           
+        </DockPanel>
+
+    </Grid>
+</Window>
