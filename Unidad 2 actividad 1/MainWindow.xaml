@@ -31,9 +31,9 @@
                 
            
         </WrapPanel>
-        <DataGrid    ItemsSource="{Binding Capitulos}" AutoGenerateColumns="False" CanUserAddRows="False" SelectedItem="{Binding Capitulo}" IsReadOnly="True">
+        <DataGrid  MaxColumnWidth="300"   ItemsSource="{Binding Capitulos}" AutoGenerateColumns="False" CanUserAddRows="False" SelectedItem="{Binding Capitulo}" IsReadOnly="True">
             
-            <DataGrid.Columns >
+            <DataGrid.Columns  >
                 <DataGridTextColumn  Binding="{Binding Numero}" Width="0.1*" Header="Numero">
                   
                 </DataGridTextColumn>
@@ -50,8 +50,12 @@
 
                 </DataGridTextColumn>
                 
-                <DataGridTextColumn  Binding="{Binding Descripcion}" Width="0.3*" Header="Sinopsis">
-
+                <DataGridTextColumn Binding="{Binding Descripcion}" Width="0.3*" Header="Sinopsis">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap"></Setter>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
             </DataGrid.Columns>
             
