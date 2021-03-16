@@ -1,0 +1,96 @@
+﻿<Window  x:Class="Unidad_2_actividad_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Unidad_2_actividad_1"
+        mc:Ignorable="d"
+        Title="Capitulos" Height="525" Width="800" MinHeight="525" >
+    <Window.DataContext>
+        <local:ListaEpisodios x:Name="ListaEpisodios"></local:ListaEpisodios>
+    </Window.DataContext>
+    
+    <Grid>
+        <Image Source="https://images5.alphacoders.com/109/1099745.jpg" Stretch="Fill">
+       </Image>
+    <DockPanel>
+            <TextBlock Background="DarkSlateGray" HorizontalAlignment="Center" DockPanel.Dock="Top" Padding="10" FontSize="40" Foreground="IndianRed" FontFamily="Century Schoolbook" FontWeight="Bold" FontStyle="Italic" Opacity="0.9"> Doom Patrol </TextBlock>
+               
+            <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="30">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="10,0,10,0">
+                        
+                    </Setter>
+                </Style>
+            </WrapPanel.Resources>
+            
+            <Button  Command="{Binding VerAgregarCommand}" CommandParameter="True"> Agregar Capitulo</Button>
+            <Button Command="{Binding VerEditarCommand}" CommandParameter="True">Editar Datos</Button>
+            <Button  Click="Button_Click" > Eliminar Capitulo</Button>
+                
+           
+        </WrapPanel>
+        <DataGrid    ItemsSource="{Binding Capitulos}" AutoGenerateColumns="False" CanUserAddRows="False" SelectedItem="{Binding Capitulo}" IsReadOnly="True">
+            
+            <DataGrid.Columns >
+                <DataGridTextColumn  Binding="{Binding Numero}" Width="0.1*" Header="Numero">
+                  
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Binding="{Binding Temporada}" Width="0.1*" Header="Temporada">
+
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Binding="{Binding Titulo}" Width="0.25*" Header="Titulo">
+
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Binding="{Binding TituloEspañol}" Width="0.25*" Header="Titulo en español">
+
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn  Binding="{Binding Descripcion}" Width="0.3*" Header="Sinopsis">
+
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        
+
+
+        
+
+            
+        </DockPanel>
+
+        <local:AgregarCapitulo Background="White" >
+            <local:AgregarCapitulo.Style>
+                <Style TargetType="UserControl">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Agregando}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </local:AgregarCapitulo.Style>
+        </local:AgregarCapitulo>
+
+        <local:EditarCapitulo Background="White" >
+            <local:EditarCapitulo.Style>
+                <Style TargetType="UserControl">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Editando}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </local:EditarCapitulo.Style>
+        </local:EditarCapitulo>
+    </Grid>
+
+
+
+</Window>
