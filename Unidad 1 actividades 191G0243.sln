@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unidad2", "Unidad2", "{1B23
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unidad1", "Unidad1", "{0C394A7D-BCF3-48B7-BC0E-3F5694B83820}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto-Recetario", "Proyecto-Recetario\Proyecto-Recetario.csproj", "{DBD078C7-D7C7-4F01-8614-1C3219938327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{5D3867CD-DCE2-4BA1-8834-0D963E573A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D3867CD-DCE2-4BA1-8834-0D963E573A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D3867CD-DCE2-4BA1-8834-0D963E573A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD078C7-D7C7-4F01-8614-1C3219938327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD078C7-D7C7-4F01-8614-1C3219938327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD078C7-D7C7-4F01-8614-1C3219938327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD078C7-D7C7-4F01-8614-1C3219938327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

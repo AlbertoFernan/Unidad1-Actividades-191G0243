@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Proyecto_Recetario.EliminarReceta"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Proyecto_Recetario"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="300" Background="LightSlateGray" MinWidth="200" MinHeight="200">
+    <Grid>
+        <StackPanel  Margin="10">
+
+            <Border  BorderThickness="1" BorderBrush="Brown" Background="LightYellow" CornerRadius="25" ><TextBlock TextWrapping="Wrap" FontSize="20" TextAlignment="Center" Foreground="Black" Margin="10">¿Esta seguro de que quiere eliminar la receta: "<TextBlock Text="{Binding Receta.Nombre}"></TextBlock>"?</TextBlock>
+            </Border>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button  BorderBrush="Transparent" Margin="10" Width="80" Background="PaleVioletRed" Foreground="White" Command="{Binding EliminarCommand}">Si</Button>
+                <Button BorderBrush="Transparent" Margin="10" Width="80" Background="DarkSeaGreen" Command="{Binding CambiarVistaCommand}" Foreground="White" CommandParameter="{x:Static local:Vistas.Lista}">No</Button>
+            </WrapPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

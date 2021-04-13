@@ -1,0 +1,95 @@
+﻿<Window x:Class="Proyecto_Recetario.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Recetario"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="450" Background="LightSlateGray" MinWidth="450" MinHeight="550">
+    <Window.DataContext>
+        <local:ListaRecetas x:Name="ListaRecetas"></local:ListaRecetas>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+
+            <Image Height="50" DockPanel.Dock="Top" Stretch="Uniform" Source="http://www.horchamex.com/recetas/titulo_recetario.png"></Image>
+         
+            <TextBlock Foreground="White" DockPanel.Dock="Top" TextAlignment="Center">
+               Filtro de busqueda:
+            </TextBlock>
+            <TextBox Name="Filtro" DockPanel.Dock="Top" Margin="40,0,40,0" TextChanged="TextBox_TextChanged" >
+                
+            </TextBox>
+            <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+                <Button Width="100" Foreground="WhiteSmoke" BorderBrush="Transparent" Background="IndianRed" Margin="0,0,0,10"  Command="{Binding  MostrarAgregarCommand}">Agregar</Button>
+              
+
+            </WrapPanel>
+
+            <ListBox Background="LightGray" ItemsSource="{Binding RecetasFiltradas}" BorderThickness="0" Margin="10"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Background="DarkSeaGreen" >
+                            <DockPanel.ContextMenu>
+                                <ContextMenu  >
+                                    <MenuItem  Background="LightSalmon" Header="Ver" Command="{Binding Source={x:Reference ListaRecetas}, Path=MostrarRecetaCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                    <MenuItem  Background="LightSalmon" Header="Editar" Command="{Binding Source={x:Reference ListaRecetas}, Path=MostrarEditarCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                    <MenuItem  Background="LightSalmon" Header="Eliminar" Command="{Binding Source={x:Reference ListaRecetas}, Path=MostrarEliminarCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                </ContextMenu>
+                            </DockPanel.ContextMenu>
+                            <Image Stretch="Fill" Width="120" Source="{Binding Imagen}"></Image>
+                            <StackPanel HorizontalAlignment="Right"   Margin="10,0">
+
+                                <TextBlock FontSize="16" Height="80"  Width="10000" Foreground="White"> <TextBlock Text="{Binding Nombre}"> </TextBlock> </TextBlock>
+                            </StackPanel>
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                
+                
+            </ListBox>
+            
+            
+        </DockPanel>
+        <ContentControl>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Agregar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:AgregarReceta ></local:AgregarReceta>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Editar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EditarReceta ></local:EditarReceta>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Eliminar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EliminarReceta ></local:EliminarReceta>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static local:Vistas.Ver}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:MostrarReceta ></local:MostrarReceta>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        
+                        
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>
