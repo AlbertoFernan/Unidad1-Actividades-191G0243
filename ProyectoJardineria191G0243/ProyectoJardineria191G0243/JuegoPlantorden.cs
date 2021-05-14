@@ -179,12 +179,12 @@ namespace ProyectoJardineria191G0243
       
         private void verificar()
         {
+          
+
+             vista4 = new ResultadoView() { BindingContext = this };
+
            
 
-             vista4 = new ResultadoView() { BindingContext = this }; 
-                
-            
-           
 
             Application.Current.MainPage.Navigation.PushAsync(vista4);
 
@@ -231,13 +231,17 @@ namespace ProyectoJardineria191G0243
             ObtenerPeticion();
 
            
-            vista2 = new PeticionView() { BindingContext = this };
 
-               
+        
+
+
+                vista2 = new PeticionView() { BindingContext = this };
+
+
             
 
 
-          
+
 
             Application.Current.MainPage.Navigation.PushAsync(vista2);
 
@@ -248,10 +252,16 @@ namespace ProyectoJardineria191G0243
             tienda.Load("TIENDA.wav");
 
             tienda.Play();
-           
-         
 
-            vista3 = new SelecFertiView() { BindingContext = this };
+            
+
+
+                vista3 = new SelecFertiView() { BindingContext = this };
+
+
+           
+
+           
             
                
             
