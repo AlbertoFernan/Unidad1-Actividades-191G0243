@@ -41,7 +41,7 @@
             
            
         <Button VerticalOptions="Start" TextColor="White" BackgroundColor="DarkGreen" CornerRadius="15" Margin="20,0,20,0"   Command="{Binding ComenzarCommand}" Text="Empezar" FontSize="Large"></Button>
-            <Label HorizontalOptions="Start" Margin="10" VerticalOptions="Start"  TextColor="White">Creado por Alberto Fernández Cuellar</Label>
+            <Label HorizontalOptions="Start" Margin="10" VerticalOptions="Start"  TextColor="White">Creado por Alberto Fernández Cuellar.</Label>
     </StackLayout>
     </Grid>
 
