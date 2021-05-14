@@ -22,13 +22,13 @@
             </TextBox>
             <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                 <Button Width="100" Foreground="WhiteSmoke" BorderBrush="Transparent" Background="IndianRed" Margin="0,0,0,10"  Command="{Binding  MostrarAgregarCommand}">Agregar</Button>
-              
+                
 
             </WrapPanel>
 
-            <ListBox Background="LightGray" ItemsSource="{Binding RecetasFiltradas}" BorderThickness="0" Margin="10"
+            <ListBox Name="list" Background="LightGray" ItemsSource="{Binding RecetasFiltradas}" BorderThickness="0" Margin="10"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                
+               
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <DockPanel Background="DarkSeaGreen" >
@@ -50,7 +50,7 @@
                 
                 
             </ListBox>
-            
+           
             
         </DockPanel>
         <ContentControl>

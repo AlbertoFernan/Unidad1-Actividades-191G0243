@@ -61,7 +61,7 @@ namespace Unidad_2_actividad_1
             Agregando = bool.Parse(ver);
             if(Agregando==true)
             {
-                Capitulo = new Capitulo();
+                
             }
         }
 
@@ -171,44 +171,10 @@ namespace Unidad_2_actividad_1
 
         public void Agregar()
         {
-            Error = "";
 
-            if (string.IsNullOrWhiteSpace(Capitulo.Numero))
-            {
-                Error = "El numero del capitulo está en blanco.";
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(Capitulo.Temporada))
-            {
-                Error = "El número de temporada está en blanco.";
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(Capitulo.Titulo))
-            {
-                Error = "Escriba el titulo del capitulo.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(Capitulo.TituloEspañol))
-            {
-                Error = "Escriba el titulo en español del capitulo.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(Capitulo.Descripcion))
-            {
-                Error = "Escriba la descripcion del capitulo.";
-                return;
-            }
-
-            if (Capitulos.Any(x => x.Titulo == Capitulo.Titulo))
-            {
-                Error = "El capitulo ya esta registrado";
-                return;
-            }
-
+            Capitulo = new Capitulo();
             Capitulos.Add(Capitulo);
-            Save();
+         
 
             Agregando = false;
         }

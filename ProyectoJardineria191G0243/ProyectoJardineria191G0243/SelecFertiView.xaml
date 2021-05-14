@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:ProyectoJardineria191G0243"
+             x:Class="ProyectoJardineria191G0243.SelecFertiView" Background="#592E26" x:Name="Selec" NavigationPage.HasNavigationBar="False" >
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="rainy" ></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+
+    <StackLayout Spacing="0">
+
+        <Frame BorderColor="#756F33" Background="#D3D537"  Padding="1" HeightRequest="60"  >
+            <StackLayout Orientation="Horizontal">
+                <Label Margin="3" FontSize="Small" WidthRequest="70" HorizontalOptions="Start" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" Background="#EFE797" TextColor="#3E3B1A" Text="{Binding Source={x:Reference Selec}, Path=BindingContext.Peticion,StringFormat='Objetivo: {0}'}"></Label>
+                <Label TextColor="#373200" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  FontSize="Title">SELECCIONA LOS FERTILIZANTES
+
+                </Label>
+                <Image  HorizontalOptions="End" Source="adornofer.png"></Image>
+
+            </StackLayout>
+
+        </Frame>
+
+
+        <Frame VerticalOptions="StartAndExpand" Margin="10,0,10,0"   Background="#B36A52" CornerRadius="10">
+
+                <Frame VerticalOptions="StartAndExpand"  Background="#B28778" CornerRadius="10">
+                <CollectionView ItemsSource="{Binding diversosfer}">
+                    <CollectionView.ItemsLayout>
+
+                    <LinearItemsLayout ItemSpacing="20" Orientation="Vertical"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame  Padding="1"  Background="#C7C1A4" CornerRadius="20">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference Selec}, Path=BindingContext.AgregarFertilizanteCommand}"
+                                                  CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Grid RowSpacing="0" >
+                                  
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"></RowDefinition>
+                                        <RowDefinition  Height="1*"></RowDefinition>
+                                    <RowDefinition  Height="1*"></RowDefinition>
+                                        <RowDefinition  Height="1*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                              
+                                    
+                                    <Image  HorizontalOptions="Center" HeightRequest="50" Grid.Row="0"  Source="{Binding imagen}">
+
+                                      
+
+                                    </Image>
+                                    <Label TextColor="#373200" HorizontalOptions="Center" Grid.Row="1" Text="{Binding Nombre}"></Label>
+                                    <Label  FontAttributes="Bold" TextColor="#716600" HorizontalOptions="Center" Grid.Row="3" Text="{Binding Precio, StringFormat='{0}$'}"></Label>
+                                    <Label TextColor="#373200" HorizontalOptions="Center" Grid.Row="2" Text="{Binding Descripcion}"></Label>
+                                   
+
+
+
+
+
+
+                                </Grid>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </Frame>
+              
+                </Frame>
+        <Image  Source="cajero2.png"></Image>
+
+        <Frame BorderColor="#136B0E"  Background="#5CB657" VerticalOptions="Start"   >
+                    <Grid HeightRequest="150">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition >
+
+                            </ColumnDefinition>
+                            <ColumnDefinition >
+
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                <Button CornerRadius="10" BackgroundColor="LightGoldenrodYellow" VerticalOptions="Fill" Command="{Binding Source={x:Reference Selec} , Path=BindingContext.CompetirCommand }"   Grid.Column="0"  Text="Competir" ></Button>
+
+
+                <StackLayout VerticalOptions="Start"  Grid.Column="1" >
+                    <StackLayout Background="#83D37E" Orientation="Horizontal" >
+                    <Image Background="yellow" Aspect="AspectFit" HeightRequest="30"  Source="Cartera.png">
+                        
+                    </Image>
+                        <Label TextColor="#373200" Text="{Binding planta.Dinero, StringFormat='Dinero: {0}$ '}" ></Label>
+                   
+                    </StackLayout>
+
+                    <StackLayout Background="#83D37E" Orientation="Horizontal"   >
+                        <Image Aspect="AspectFit" HeightRequest="30"  Source="flecha.png">
+
+                        </Image>
+                        <Label TextColor="#373200" Text="{Binding Tamañoposible,StringFormat='Crecimiento maximo: {0}m '}" >
+                    </Label>
+                </StackLayout>
+
+                </StackLayout>
+
+            </Grid>
+                </Frame>
+
+
+              
+
+
+            </StackLayout>
+       
+       
+   
+</ContentPage>

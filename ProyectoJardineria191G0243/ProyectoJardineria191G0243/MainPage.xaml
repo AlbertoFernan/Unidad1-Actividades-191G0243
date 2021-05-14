@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:ProyectoJardineria191G0243"
+             x:Class="ProyectoJardineria191G0243.MainPage" Background="#A3E385" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False" >
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="rainy" ></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local:JuegoPlantorden x:Name='Juego'></local:JuegoPlantorden>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Image Source="grass.png" Aspect="AspectFill"></Image>
+    <StackLayout Spacing="0">
+        
+        
+        <Image HorizontalOptions="Fill" VerticalOptions="Start" Source="titlev2.png"  > 
+        </Image>
+
+            <Frame CornerRadius="20"  Margin="20,20,20,0" VerticalOptions="StartAndExpand" Background="#F0DECA">
+                <Label  >Bienvenido a Plantorden:
+                    
+- En este mini juego debes hacer crecer una planta a cierta altura para poder pasar a la siguiente ronda.
+                    
+- Para ello necesitaras comprar fertilizantes con diferentes características.
+                    
+- Si el tamaño de tu planta sobrepasa el solicitado perderás inmediatamente.
+                    
+- si no hay mas de 2 metros de diferencia entre la altura requerida y la de tu planta, pasaras a la siguiente ronda y ganaras dinero.
+                    
+
+
+                </Label>
+            </Frame>
+           
+
+            
+           
+        <Button VerticalOptions="Start" TextColor="White" BackgroundColor="DarkGreen" CornerRadius="15" Margin="20,0,20,0"   Command="{Binding ComenzarCommand}" Text="Empezar" FontSize="Large"></Button>
+            <Label HorizontalOptions="Start" Margin="10" VerticalOptions="Start"  TextColor="White">Creado por Alberto Fernández Cuellar</Label>
+    </StackLayout>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoJardineria191G0243.PeticionView" Background="#936859"  x:Name="Peticion" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="rainy" ></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    
+        <StackLayout Spacing="0">
+
+      
+       
+        <Frame  BorderColor="DarkRed" Background="#B43434"  Padding="1" HeightRequest="60"  >
+            <StackLayout Orientation="Horizontal">
+                <Image  HorizontalOptions="Fill" Source="back.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label FontSize="Title"  FontAttributes="Bold" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" >PETICIÓN
+            </Label>
+                <Image  HorizontalOptions="Fill" Source="peticon.png"></Image>
+
+            </StackLayout>
+
+        </Frame>
+            
+            
+        <Image Margin="0,10,0,10"  VerticalOptions="Start" Source="Mensajero.png"></Image>
+            
+        <Frame BorderColor="DarkRed" Margin="20,0,20,10" CornerRadius="20" VerticalOptions="StartAndExpand" Background="white">
+            <Label  FontFamily="rainy" TextColor="Black"  Text="{Binding Source={x:Reference Peticion}, Path=BindingContext.Peticion,  StringFormat='Quiero una planta que mida: {0} metros ' }"></Label>
+        </Frame>
+            
+        <Frame  Margin="40,0,40,10"   CornerRadius="10" VerticalOptions="Start" Background="gold">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference Peticion}, Path=BindingContext.ComprarFerCommand }"></TapGestureRecognizer>
+            </Frame.GestureRecognizers>
+            <Label TextColor="#784A35"  HorizontalTextAlignment="Center" >Comprar fertilizantes</Label>
+        </Frame>
+            
+        <Grid VerticalOptions="Start">
+            <Image Aspect="Fill"   VerticalOptions="End" Source="desk.png"></Image>
+        </Grid>
+    </StackLayout>
+
+  
+</ContentPage>
