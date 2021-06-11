@@ -106,9 +106,9 @@ namespace Proyecto1Arterial.ViewModels
         private void Cargar()
         {
             Presiones.Clear();
-            foreach (var cuentos in Registro.GetAll())
+            foreach (var regi in Registro.GetAll())
             {
-                Presiones.Add(cuentos);
+                Presiones.Add(regi);
             }
         }
 
