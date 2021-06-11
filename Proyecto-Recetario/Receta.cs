@@ -8,6 +8,7 @@ namespace Proyecto_Recetario
     public class Receta
     {
         public string Nombre { get; set; }
+
         public string Ingredientes { get; set; }
         public string Procedimiento { get; set; }
         public string Imagen { get; set; }

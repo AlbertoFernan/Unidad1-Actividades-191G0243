@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="MedicionMedica.Views.ListaRegistros"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MedicionMedica.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="#A2FFA1">
+    <Grid>
+        <DockPanel>
+            <TextBlock  DockPanel.Dock="Top" FontSize="20" HorizontalAlignment="Center">Registros de presion arterial</TextBlock>
+            <Border  Margin="0,10,0,10" HorizontalAlignment="Center" CornerRadius="10" Background="#7AFBE4" DockPanel.Dock="Bottom" >
+                <TextBlock Margin="10" FontSize="15">Agregar</TextBlock>
+            </Border>
+            <ListBox Background="#D8EBE8" Margin="20,20,20,0" DockPanel.Dock="Top"></ListBox>
+        </DockPanel>
+    </Grid>
+</UserControl>

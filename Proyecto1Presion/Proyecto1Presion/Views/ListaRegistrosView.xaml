@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:Proyecto1Presion.ViewModels"
+             x:Class="Proyecto1Presion.Views.ListaRegistrosView">
+    <ContentPage.BindingContext>
+        <vm:PresionViewModel x:Name="vmPresion"></vm:PresionViewModel>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*"></RowDefinition>
+            <RowDefinition Height=".5*"></RowDefinition>
+            <RowDefinition  Height=".3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" >Registro de presion</Label>
+
+        <CollectionView ItemsSource="{Binding Presiones}" Grid.Row="1">
+
+            <CollectionView.ItemsLayout>
+
+                <LinearItemsLayout ItemSpacing="20" Orientation="Vertical"></LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame  Padding="1"  Background="#C7C1A4" CornerRadius="20">
+
+                        <Grid RowSpacing="0" >
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"></RowDefinition>
+                                <RowDefinition  Height="2*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label  HorizontalOptions="Center" Grid.Row="0" Text="{Binding Nombre}"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="1" Text="{Binding Fecha}"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="2" Text="{Binding Hora}"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="3" Text="{Binding PresionSistolica}"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="4" Text="{Binding PresionDiastolica}"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="5" Text="{Binding Pulso}"></Label>
+
+
+
+
+
+
+
+                        </Grid>
+                    </Frame>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Command="{Binding NuevoReCommand}" Grid.Row="2" Text="Agregar"></Button>
+    </Grid>
+</ContentPage>

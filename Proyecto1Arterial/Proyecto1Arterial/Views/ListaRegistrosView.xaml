@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:vm="clr-namespace:Proyecto1Arterial.ViewModels"
+             x:Class="Proyecto1Arterial.Views.ListaRegistrosView" Background="#D4E6F1" x:Name="list" NavigationPage.HasNavigationBar="False" >
+
+    <ContentPage.BindingContext>
+        <vm:PresionViewModel x:Name="vmPresion"></vm:PresionViewModel>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"></RowDefinition>
+            <RowDefinition Height=".75*"></RowDefinition>
+            <RowDefinition  Height=".15*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+
+        <CollectionView  Margin="10" ItemsSource="{Binding Presiones}" Grid.Row="1">
+            <CollectionView.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="TextColor" Value="#122B3C "></Setter>
+                </Style>
+            </CollectionView.Resources>
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"></LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame  Padding="1"  Background="#A3E4D7" CornerRadius="20">
+
+                        <Grid RowSpacing="0" ColumnSpacing="0" >
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                                <RowDefinition  Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".6*"></ColumnDefinition>
+                                <ColumnDefinition Width=".4*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label  HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"  Text="{Binding Nombre}"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"  Text="Fecha:"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="2" Grid.Column="0"  Text="{Binding Fecha}"></Label>
+                           
+                            <Label  HorizontalOptions="Center" Grid.Row="3" Grid.Column="0"  Text="Hora:"></Label>
+                            <Label  HorizontalOptions="Center" Grid.Row="4" Grid.Column="0"  Text="{Binding Hora}"></Label>
+                            <Frame Margin="15,0,15,0" Padding="1" Grid.Row="5" Grid.Column="0"  >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference list}, Path=BindingContext.EditarCommand}"
+                                                  CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Image HeightRequest="10" Source="editv2.png"></Image>
+                            </Frame>
+
+                            <Frame Margin="15,0,15,0"  Padding="1" Grid.Row="5" Grid.Column="1" HeightRequest="1" BackgroundColor="#F3BDBD  "  >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference list}, Path=BindingContext.EliminarCommand}"
+                                                  CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Image HeightRequest="10" Source="Borrar.png"></Image>
+                            </Frame>
+
+                            <StackLayout   HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+                                <Frame VerticalOptions="Center" Padding="1" HeightRequest="5" WidthRequest="5" CornerRadius="10"></Frame>
+                                <Label HorizontalOptions="Start"   Text="{Binding PresionSistolica, StringFormat='​P. sistólica:{0}'}"></Label>
+                            </StackLayout>
+
+                            <StackLayout    HorizontalOptions="Start" Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" >
+                                <Frame VerticalOptions="Center" Padding="1" HeightRequest="5" WidthRequest="5" CornerRadius="10"></Frame>
+                                <Label  Text="{Binding PresionDiastolica,StringFormat='​P. diastólica:{0}'}"></Label>
+                            </StackLayout>
+
+                            <StackLayout    HorizontalOptions="Start" Grid.Row="2" Grid.Column="1"  Orientation="Horizontal" >
+                                <Frame VerticalOptions="Center" Padding="1" HeightRequest="5" WidthRequest="5" CornerRadius="10"></Frame>
+                                <Label   Text="{Binding Pulso,StringFormat='​Pulso:{0}'}"></Label>
+                            </StackLayout>
+                           
+                           
+
+
+
+
+
+
+
+                        </Grid>
+                    </Frame>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <BoxView Grid.Row="2"  BackgroundColor=" #5DADE2 "></BoxView>
+
+        <BoxView  Margin="40,0,40,0" Grid.Row="0"  BackgroundColor="#EC7063"></BoxView>
+       
+        
+        <Label VerticalOptions="Center" TextColor="White" FontSize="Large" HorizontalOptions="Center"  Grid.Row="0" >Registro de presion</Label>
+
+        <Grid  HorizontalOptions="Fill"  Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*"></ColumnDefinition>
+                <ColumnDefinition Width=".4*"></ColumnDefinition>
+                <ColumnDefinition Width=".3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalOptions="Center" Margin="0,10,0,10"  Source="Libreta.png"></Image>
+            <Button Grid.Column="1"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding NuevoReCommand}"  Text="Agregar"></Button>
+            <Image Grid.Column="2" HorizontalOptions="Center" Margin="0,10,0,10"  Source="presion.png"></Image>
+        </Grid>
+       </Grid>
+</ContentPage>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto1Arterial.Views.EditarRegistroView" NavigationPage.HasNavigationBar="False" BackgroundColor="#A6CDF8 " >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".85*">
+
+            </RowDefinition>
+            <RowDefinition Height=".15*">
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <StackLayout Spacing="4" Margin="10,10,10,0" Grid.Row="0" VerticalOptions="Fill">
+            <StackLayout.Resources>
+                <Style TargetType="Frame">
+                    <Setter Property="CornerRadius" Value="10"></Setter>
+                    <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                    <Setter Property="Padding" Value="1"></Setter>
+                    <Setter Property="BackgroundColor" Value="#8CF2C3 "></Setter>
+
+                </Style>
+                <Style TargetType="Label">
+                    <Setter  Property="Margin" Value="10,0,10,0"></Setter>
+                    <Setter  Property="TextColor" Value="black"></Setter>
+
+                </Style>
+            </StackLayout.Resources>
+            <Frame BackgroundColor="#D3664D" HorizontalOptions="Center">
+                <Label TextColor="White" Margin="10,2,10,2" Text="Editar Registro"></Label>
+            </Frame>
+            <Frame>
+                <Label  Text="Nombre:"></Label>
+            </Frame>
+
+            <Entry Text="{Binding Presion.Nombre}"></Entry>
+            <Frame  >
+                <Label  Text="Presión sistólica:"></Label>
+            </Frame>
+            <Entry Text="{Binding Presion.PresionSistolica }"></Entry>
+            <Frame
+            >
+                <Label Text="Presión diastólica:"></Label>
+            </Frame>
+
+            <Entry Text="{Binding Presion.PresionDiastolica  }"></Entry>
+            <Frame>
+                <Label Text="Pulso:"></Label>
+            </Frame>
+
+
+            <Entry Text="{Binding Presion.Pulso }"></Entry>
+            <Frame>
+                <Label Text="Fecha:"></Label>
+            </Frame>
+
+            <DatePicker Date="{Binding Presion.Fecha}"></DatePicker>
+            <Frame>
+                <Label Text="Hora:"></Label>
+            </Frame>
+
+            <TimePicker Time="{Binding Presion.Hora}"></TimePicker>
+            <Label Text="{Binding MensajeError}"></Label>
+
+
+        </StackLayout>
+        <StackLayout Grid.Row="1">
+
+            <Frame CornerRadius="10"  Padding="1" BackgroundColor=" #63CFFA    " Margin="50,0,50,10" >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GuardarCommand}"
+                ></TapGestureRecognizer>
+
+                </Frame.GestureRecognizers>
+                <Label Margin="5" HorizontalOptions="CenterAndExpand" TextColor="#333224" FontSize="Subtitle"   Text="GUARDAR"></Label>
+
+            </Frame>
+            <Frame CornerRadius="10"   Padding="1" BackgroundColor="#E9A0B6 " Margin="50,0,50,0" >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CancelarCommand}"
+                ></TapGestureRecognizer>
+
+                </Frame.GestureRecognizers>
+                <Label Margin="5"  HorizontalOptions="CenterAndExpand" TextColor="#333224" FontSize="Subtitle"   Text="CANCELAR"></Label>
+
+            </Frame>
+
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
