@@ -1,9 +1,0 @@
-﻿<Application x:Class="Proyecto2AgendaCitas191G0243.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Proyecto2AgendaCitas191G0243"
-             StartupUri="Views/AgendaView.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
